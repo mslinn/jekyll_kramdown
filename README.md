@@ -4,6 +4,9 @@ Defines a `kramdown` block tag that processes
 [Kramdown](https://kramdown.gettalong.org/) (a flavor of Markdown) embedded in
 HTML files.
 
+This plugin uses the facilities of the
+[`kramdown`](https://kramdown.gettalong.org) plugin, which can be relatively slow.
+
 
 ## Installation
 
