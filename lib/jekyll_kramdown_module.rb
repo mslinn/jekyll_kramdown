@@ -1,8 +1,10 @@
 # See https://mslinn.com/jekyll/10700-designing-for-testability.html
 module JekyllKramdownModule
-  require 'kramdown'
-  require 'kramdown-parser-gfm'
-  require 'kramdown-math-katex'
+  Jekyll::Hooks.register :site, :after_init do
+    require 'kramdown'
+    require 'kramdown-parser-gfm'
+    require 'kramdown-math-katex'
+  end
 
   def markdownify(
     markdown_text,
