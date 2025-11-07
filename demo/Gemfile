@@ -5,9 +5,9 @@ gem 'jekyll', '>= 4.4.1'
 group :jekyll_plugins do
   gem 'jekyll-assets', git: 'https://github.com/envygeeks/jekyll-assets'
   gem 'jekyll-environment-variables'
-  gem 'jekyll_plugin_support', '>= 3.1.0'
-  gem 'jekyll-tagging'
   gem 'jekyll_kramdown', path: '../' # use unreleased gem dependencies defined in the parent project
+  gem 'jekyll_plugin_support', '>= 3.1.1'
+  gem 'jekyll-tagging'
 end
 
 group :test, :development do

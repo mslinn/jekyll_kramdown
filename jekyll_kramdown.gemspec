@@ -37,5 +37,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'kramdown'
   spec.add_dependency 'kramdown-math-katex'
   spec.add_dependency 'kramdown-parser-gfm'
-  spec.add_dependency 'logger'
 end

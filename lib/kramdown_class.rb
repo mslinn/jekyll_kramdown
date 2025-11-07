@@ -32,16 +32,14 @@ module JekyllKramdown
 
     # @return [string] markup to be rendered on web page
     def render_impl(content)
-      @auto_ids           = @helper.parameter_specified? 'auto_ids'           | true
-      @hard_wrap          = @helper.parameter_specified? 'hard_wrap'          | false
-      @input              = @helper.parameter_specified? 'input'              | 'GFM'
-      @math_engine        = @helper.parameter_specified? 'math_engine'        | 'katex'
-      @syntax_highlighter = @helper.parameter_specified? 'syntax_highlighter'
+      @no_auto_ids        = @helper.parameter_specified?('no_auto_ids')        || false
+      @input              = @helper.parameter_specified?('input')              || 'GFM'
+      @math_engine        = @helper.parameter_specified?('math_engine')        || 'katex'
+      @syntax_highlighter = @helper.parameter_specified?('syntax_highlighter')
 
-      kramdown_doc = markdownify(
+      kramdown_doc = JekyllKramdownModule.markdownify(
         content,
-        auto_ids:           @auto_ids,
-        hard_wrap:          @hard_wrap,
+        auto_ids:           !@no_auto_ids,
         input:              @input,
         math_engine:        @math_engine,
         syntax_highlighter: @syntax_highlighter

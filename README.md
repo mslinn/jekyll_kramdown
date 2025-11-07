@@ -21,9 +21,10 @@ And then execute:
 $ bundle
 ```
 
-## Configuration
+## Options
 
-See https://jekyllrb.com/docs/configuration/markdown/
+Kramdown options can be specified in the content.
+See https://kramdown.gettalong.org/options.html
 
 ## Usage
 

@@ -5,6 +5,6 @@ def require_directory(dir)
 end
 
 require 'jekyll'
-require 'jekyll_plugin_logger'
+# require 'jekyll_plugin_logger'
 require 'jekyll_plugin_support'
 require_directory __dir__
