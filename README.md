@@ -41,6 +41,15 @@ Some text
 {% endkramdown %}
 ```
 
+Modify `_config.yaml` to set kramdown options:
+
+```yaml
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+```
+
 
 ## Development
 
