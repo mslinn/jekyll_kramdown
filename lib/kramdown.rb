@@ -1,7 +1,4 @@
 require 'jekyll'
-require 'kramdown'
-require 'kramdown-parser-gfm'
-require 'kramdown-math-katex'
 require 'jekyll_plugin_support'
 require 'helper/jekyll_plugin_helper'
 require_relative 'jekyll_kramdown_module'
