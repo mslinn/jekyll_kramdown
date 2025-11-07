@@ -26,8 +26,32 @@ $ bundle
 
 ## Options
 
-Kramdown options can be specified in the content.
-See https://kramdown.gettalong.org/options.html
+### Invocation options
+
+The available options for the `kramdown` block tag are:
+
+- `noauto_ids` Do not generate `id` tags
+- `hard_wrap` Enable GitHub wrapping default
+- `input=GFM` Specify flavor of markdown (case sensitive)
+- `math_engine=katex` Specify math engine (case senstitive)
+- `syntax_highlighter=rouge` Specify highligher (case sensitive)
+
+Here they are all used together:
+
+```html
+{% kramdown noauto_ids hard_wrap input=GFM math_engine=katex syntax_highlighter=rouge %}
+## Subheading here
+
+- This is a perfectly good point
+- YAP (yet another point)
+{% endkramdown %}
+```
+
+
+### Document Options
+
+Kramdown options can be specified in the content to some degree and with some
+fussing. See https://kramdown.gettalong.org/options.html
 
 ## Usage
 
