@@ -37,6 +37,7 @@ module JekyllKramdown
       @input              = @helper.parameter_specified?('input')              || 'GFM'
       @math_engine        = @helper.parameter_specified?('math_engine')        || 'katex'
       @syntax_highlighter = @helper.parameter_specified?('syntax_highlighter')
+      @table_container    = @helper.parameter_specified?('table-container')
 
       kramdown_doc = JekyllKramdownModule.markdownify(
         content,
@@ -46,7 +47,8 @@ module JekyllKramdown
         math_engine:        @math_engine,
         syntax_highlighter: @syntax_highlighter
       )
-      kramdown_doc.to_html
+      html = kramdown_doc.to_html
+      @table_container ? "<div class='table-container'>#{html}</div>" : html
     rescue StandardError => e
       @logger.error { "#{self.class} died with a #{e.full_message}" }
       exit 3

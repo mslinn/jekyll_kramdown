@@ -35,11 +35,14 @@ The available options for the `kramdown` block tag are:
 - `input=GFM` Specify flavor of markdown (case sensitive)
 - `math_engine=katex` Specify math engine (case senstitive)
 - `syntax_highlighter=rouge` Specify highligher (case sensitive)
+- `table-container` Wrap the output within `&lt;div class="table-container">&lt;/div>`
 
 Here they are all used together:
 
 ```html
-{% kramdown noauto_ids hard_wrap input=GFM math_engine=katex syntax_highlighter=rouge %}
+{% kramdown noauto_ids hard_wrap input=GFM table-container
+  math_engine=katex
+  syntax_highlighter=rouge %}
 ## Subheading here
 
 - This is a perfectly good point
