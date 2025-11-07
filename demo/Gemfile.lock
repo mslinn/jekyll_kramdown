@@ -294,7 +294,7 @@ DEPENDENCIES
   jekyll-environment-variables
   jekyll-tagging
   jekyll_kramdown!
-  jekyll_plugin_support (>= 3.1.0)
+  jekyll_plugin_support (>= 3.1.1)
   rspec-core
   rubocop
   rubocop-rspec
