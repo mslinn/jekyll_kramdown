@@ -1,6 +1,8 @@
 # `Jekyll_kramdown` [![Gem Version](https://badge.fury.io/rb/jekyll_kramdown.svg)](https://badge.fury.io/rb/jekyll_kramdown)
 
-Description of JekyllKramdown
+Defines a `kramdown` block tag that processes
+[Kramdown](https://kramdown.gettalong.org/) (a flavor of Markdown) embedded in
+HTML files.
 
 
 ## Installation
@@ -19,10 +21,24 @@ And then execute:
 $ bundle
 ```
 
+## Configuration
+
+See https://jekyllrb.com/docs/configuration/markdown/
 
 ## Usage
 
-Describe how to use this gem
+Add the following in any HTML file within a Jekyll project:
+
+```html
+{% kramdown %}
+## Heading
+
+Some text
+
+- option 1
+- option 2
+{% endkramdown %}
+```
 
 
 ## Development
@@ -73,9 +89,10 @@ $ bundle exec rake release
 
 ## Contributing
 
-Bug reports and pull requests are welcome at https://github.com/Mike Slinn/jekyll_kramdown.
+Bug reports and pull requests are welcome at https://github.com/mlinn/jekyll_kramdown.
 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT
+License](https://opensource.org/licenses/MIT).

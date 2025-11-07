@@ -1,4 +1,7 @@
 require 'jekyll_plugin_support'
+require 'kramdown'
+require 'kramdown-parser-gfm'
+require 'kramdown-math-katex'
 require 'helper/jekyll_plugin_helper'
 require_relative 'jekyll_kramdown_module'
 require_relative 'jekyll_kramdown/version'
@@ -29,28 +32,23 @@ module JekyllKramdown
 
     VERSION = JekyllKramdown::VERSION
 
-    def initialize(tag_name, argument_string, parse_context)
-      class << self
-        include NoArgParsing
-      end
-
-      super
-      @logger.debug { "#{self.class}: respond_to?(:no_arg_parsing) #{respond_to?(:no_arg_parsing) ? 'yes' : 'no'}." }
-    rescue StandardError => e
-      @logger.error { "#{self.class} died with a #{e.full_message}" }
-      exit 2
-    end
-
     # @return [string] markup to be rendered on web page
     def render_impl(content)
-      # Put your plugin logic here and modify the following return value.
+      @auto_ids           = @helper.parameter_specified? 'auto_ids'           | true
+      @hard_wrap          = @helper.parameter_specified? 'hard_wrap'          | false
+      @input              = @helper.parameter_specified? 'input'              | 'GFM'
+      @math_engine        = @helper.parameter_specified? 'math_engine'        | 'katex'
+      @syntax_highlighter = @helper.parameter_specified? 'syntax_highlighter'
 
-      <<~HEREDOC
-        <pre class="example">
-          content = '#{content}'
-          This is the kramdown block tag output.
-        </pre>
-      HEREDOC
+      kramdown_doc = markdownify(
+        content,
+        auto_ids:           @auto_ids,
+        hard_wrap:          @hard_wrap,
+        input:              @input,
+        math_engine:        @math_engine,
+        syntax_highlighter: @syntax_highlighter
+      )
+      kramdown_doc.to_html
     rescue StandardError => e
       @logger.error { "#{self.class} died with a #{e.full_message}" }
       exit 3

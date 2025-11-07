@@ -34,5 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jekyll', '>= 4.4.0'
   spec.add_dependency 'jekyll_draft'
   spec.add_dependency 'jekyll_plugin_support', '>= 3.1.0'
+  spec.add_dependency 'kramdown'
+  spec.add_dependency 'kramdown-math-katex'
+  spec.add_dependency 'kramdown-parser-gfm'
   spec.add_dependency 'logger'
 end
