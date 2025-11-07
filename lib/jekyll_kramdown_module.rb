@@ -1,11 +1,5 @@
 # See https://mslinn.com/jekyll/10700-designing-for-testability.html
 module JekyllKramdownModule
-  Jekyll::Hooks.register :site, :after_init do
-    require 'kramdown'
-    require 'kramdown-parser-gfm'
-    require 'kramdown-math-katex'
-  end
-
   def markdownify(
     markdown_text,
     auto_ids: true,
@@ -14,7 +8,10 @@ module JekyllKramdownModule
     math_engine: 'katex',
     syntax_highlighter: nil
   )
-    # syntax_highlighter: 'rouge', # optional, if you want code highlighting
+    require 'kramdown'
+    require 'kramdown-parser-gfm'
+    require 'kramdown-math-katex'
+
     Kramdown::Document.new(
       markdown_text,
       auto_ids:           auto_ids,
