@@ -40,7 +40,8 @@ The available options for the `kramdown` block tag are:
 Here they are all used together:
 
 ```html
-{% kramdown noauto_ids hard_wrap input=GFM table-container
+{% kramdown noauto_ids hard_wrap table-container
+  input=GFM
   math_engine=katex
   syntax_highlighter=rouge %}
 ## Subheading here
@@ -60,8 +61,8 @@ being used within kramdown text, which was embedded in an HTML page.
 
 ### Document Options
 
-Kramdown options can be specified in the content to some degree and with some
-fussing. See https://kramdown.gettalong.org/options.html
+[Kramdown options can be specified in the content](https://kramdown.gettalong.org/options.html)
+to some degree and with some fussing.
 
 ## Usage
 
@@ -81,10 +82,10 @@ Some text
 Modify `_config.yaml` to set kramdown options:
 
 ```yaml
-markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
+markdown: kramdown
 ```
 
 
