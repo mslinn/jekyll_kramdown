@@ -30,12 +30,13 @@ $ bundle
 
 The available options for the `kramdown` block tag are:
 
+- `class` Wrap the output in a div with this class
 - `noauto_ids` Do not generate `id` tags
 - `hard_wrap` Enable GitHub wrapping default
 - `input=GFM` Specify flavor of markdown (case sensitive)
 - `math_engine=katex` Specify math engine (case senstitive)
+- `style='padding: 1em;'` Wrap the output in a div with this style
 - `syntax_highlighter=rouge` Specify highligher (case sensitive)
-- `table-container` Wrap the output within `&lt;div class="table-container">&lt;/div>`
 
 Here they are all used together:
 

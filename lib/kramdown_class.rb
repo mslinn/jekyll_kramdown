@@ -32,12 +32,13 @@ module JekyllKramdown
 
     # @return [string] markup to be rendered on web page
     def render_impl(content)
-      @no_auto_ids        = @helper.parameter_specified?('no_auto_ids')        || false
-      @hard_wrap          = @helper.parameter_specified?('hard_wrap')          || false
-      @input              = @helper.parameter_specified?('input')              || 'GFM'
-      @math_engine        = @helper.parameter_specified?('math_engine')        || 'katex'
+      @klass              = @helper.parameter_specified?('class')
+      @no_auto_ids        = @helper.parameter_specified?('no_auto_ids')  || false
+      @hard_wrap          = @helper.parameter_specified?('hard_wrap')    || false
+      @input              = @helper.parameter_specified?('input')        || 'GFM'
+      @math_engine        = @helper.parameter_specified?('math_engine')  || 'katex'
+      @style              = @helper.parameter_specified?('style')
       @syntax_highlighter = @helper.parameter_specified?('syntax_highlighter')
-      @table_container    = @helper.parameter_specified?('table-container')
 
       kramdown_doc = JekyllKramdownModule.markdownify(
         content,
@@ -48,7 +49,9 @@ module JekyllKramdown
         syntax_highlighter: @syntax_highlighter
       )
       html = kramdown_doc.to_html
-      @table_container ? "<div class='table-container'>#{html}</div>" : html
+      @klass = " class='#{@klass}'" if @klass
+      @style = " style='#{@style}'" if @style
+      @klass || @style ? "<div#{@klass}#{@style}>#{html}</div>" : html
     rescue StandardError => e
       @logger.error { "#{self.class} died with a #{e.full_message}" }
       exit 3
