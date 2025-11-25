@@ -32,8 +32,8 @@ module JekyllKramdown
 
     # @return [string] markup to be rendered on web page
     def render_impl(content)
-      @klass              = @helper.parameter_specified?('class')
-      @no_auto_ids        = @helper.parameter_specified?('no_auto_ids')  || false
+      @klass = @helper.parameter_specified?('class')
+      @no_auto_ids        = @helper.parameter_specified?('no_auto_ids') || false
       @hard_wrap          = @helper.parameter_specified?('hard_wrap')    || false
       @input              = @helper.parameter_specified?('input')        || 'GFM'
       @math_engine        = @helper.parameter_specified?('math_engine')  || 'katex'

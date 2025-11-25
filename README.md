@@ -31,7 +31,7 @@ $ bundle
 The available options for the `kramdown` block tag are:
 
 - `class` Wrap the output in a div with this class
-- `noauto_ids` Do not generate `id` tags
+- `no_auto_ids` Do not generate `id` tags
 - `hard_wrap` Enable GitHub wrapping default
 - `input=GFM` Specify flavor of markdown (case sensitive)
 - `math_engine=katex` Specify math engine (case senstitive)
@@ -41,7 +41,7 @@ The available options for the `kramdown` block tag are:
 Here they are all used together:
 
 ```html
-{% kramdown noauto_ids hard_wrap table-container
+{% kramdown no_auto_ids hard_wrap table-container
   input=GFM
   math_engine=katex
   syntax_highlighter=rouge %}

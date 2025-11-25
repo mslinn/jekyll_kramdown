@@ -5,6 +5,18 @@ title: Exercising Parameter Combinations
 ---
 <h2 id="tag_kramdown" class='code'>kramdown</h2>
 
+<!-- #region bug -->
+<h2 id="bug">Bug</h2>
+{% kramdown no_auto_ids class="info maxOneScreenHigh rounded shadow" %}
+## This should not have an id
+
+### This too
+
+<kbd>CTRL</kbd>+<kbd>U</kbd> will let us know.
+{% endkramdown %}
+<!-- endregion -->
+
+
 <!-- #region kramdown  (invoked without parameters) -->
 <h3 id="kramdown" class="code">kramdown  (invoked without parameters)</h3>
 {% kramdown %}
