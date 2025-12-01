@@ -37,6 +37,7 @@ module JekyllKramdown
       @hard_wrap          = @helper.parameter_specified?('hard_wrap')    || false
       @input              = @helper.parameter_specified?('input')        || 'GFM'
       @math_engine        = @helper.parameter_specified?('math_engine')  || 'katex'
+      @maxOneScreenHigh   = @helper.parameter_specified?('maxOneScreenHigh')
       @style              = @helper.parameter_specified?('style')
       @syntax_highlighter = @helper.parameter_specified?('syntax_highlighter')
 
@@ -51,7 +52,11 @@ module JekyllKramdown
       html = kramdown_doc.to_html
       @klass = " class='#{@klass}'" if @klass
       @style = " style='#{@style}'" if @style
-      @klass || @style ? "<div#{@klass}#{@style}>#{html}</div>" : html
+      if @maxOneScreenHigh
+        "<div#{@klass}#{@style}><div class='maxOneScreenHigh'>#{html}</div></div>"
+      else
+        @klass || @style ? "<div#{@klass}#{@style}>#{html}</div>" : html
+      end
     rescue StandardError => e
       @logger.error { "#{self.class} died with a #{e.full_message}" }
       exit 3

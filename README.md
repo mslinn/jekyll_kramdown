@@ -35,13 +35,14 @@ The available options for the `kramdown` block tag are:
 - `hard_wrap` Enable GitHub wrapping default
 - `input=GFM` Specify flavor of markdown (case sensitive)
 - `math_engine=katex` Specify math engine (case senstitive)
+- `maxOneScreenHigh` Wrap the output in a div with class maxOneScreenHigh
 - `style='padding: 1em;'` Wrap the output in a div with this style
 - `syntax_highlighter=rouge` Specify highligher (case sensitive)
 
 Here they are all used together:
 
 ```html
-{% kramdown no_auto_ids hard_wrap table-container
+{% kramdown no_auto_ids hard_wrap maxOneScreenHigh table-container
   input=GFM
   math_engine=katex
   syntax_highlighter=rouge %}
